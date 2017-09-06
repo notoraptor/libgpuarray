@@ -22,7 +22,6 @@ install:
   # This breaks conda-build because of git
   - cmd: rmdir C:\cygwin /s /q
   - cmd: call %CONDA_LOC%\Scripts\activate.bat
-  - cmd: type %CONDA_LOC%\Scripts\activate.bat
   - cmd: set PYTHONUNBUFFERED=1
   - cmd: conda install -n root --yes conda conda-env conda-build anaconda-client
   # We borrow a trick from conda-forge to fix the VS2008 compiler
