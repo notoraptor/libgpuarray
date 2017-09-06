@@ -20,7 +20,10 @@ environment:
 
 install:
   # This breaks conda-build because of git
+  - cmd: dir /b C:\cygwin
+  - cmd: dir /b C:\cygwin64
   - cmd: rmdir C:\cygwin /s /q
+  - cmd: rmdir C:\cygwin64 /s /q
   - cmd: call %CONDA_LOC%\Scripts\activate.bat
   - cmd: set PYTHONUNBUFFERED=1
   - cmd: conda install -n root --yes conda conda-env conda-build anaconda-client
