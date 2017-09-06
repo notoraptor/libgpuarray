@@ -20,8 +20,6 @@ environment:
 
 install:
   # This breaks conda-build because of git
-  - cmd: where git
-  - cmd: python -c "import os; print('\n'.join(os.environ['PATH'].split(os.pathsep)))"
   - cmd: rmdir C:\cygwin /s /q
   - cmd: call %CONDA_LOC%\Scripts\activate.bat
   - cmd: set PYTHONUNBUFFERED=1
