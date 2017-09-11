@@ -4,6 +4,12 @@ import versioneer
 
 have_cython = False
 
+def get_version():
+    version = versioneer.get_version()
+    if 'unknown' in version:
+        raise EnvironmentError('Unable to retrieve pygpu version')
+    return version
+
 try:
     import Cython
     if Cython.__version__ < '0.25':
@@ -121,7 +127,7 @@ exts = [Extension('pygpu.gpuarray',
                   )]
 
 setup(name='pygpu',
-      version=versioneer.get_version(),
+      version=get_version(),
       cmdclass=versioneer.get_cmdclass(),
       description='numpy-like wrapper on libgpuarray for GPU computations',
       packages=['pygpu', 'pygpu/tests'],
